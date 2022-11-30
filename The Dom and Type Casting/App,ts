@@ -1,0 +1,26 @@
+const anchor = document.querySelector('a')!; //we know that this element exist in an HTML dom 
+if(anchor) {
+  console.log(anchor.href);
+}
+console.log(anchor.href);
+
+//const form = document.querySelector('form')!;
+const form = document.querySelector('.new-item-form') as HTMLFormElement;
+console.log(form.children);
+
+// inputs
+const type = document.querySelector('#type') as HTMLInputElement; //we specify our target, that we already know what element are we targeting
+const tofrom = document.querySelector('#tofrom') as HTMLInputElement;
+const details = document.querySelector('#details') as HTMLInputElement;
+const amount = document.querySelector('#amount') as HTMLInputElement;
+
+form.addEventListener('submit', (e: Event) => { //in typescript Event is held as the changes within a certain element
+  e.preventDefault();
+
+  console.log(
+    type.value, 
+    tofrom.value, 
+    details.value, 
+    amount.valueAsNumber //We add AsNumber at the end to specify this is not a string but rather a number
+  );
+});
